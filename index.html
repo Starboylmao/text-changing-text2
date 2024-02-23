@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Text-changing-text</title>
+  <link rel="stylesheet" href="./style.css">
+<style>
+  @import url("https://fonts.googleapis.com/css?family=Raleway:400,400i,700");
+body{
+   margin:0;
+   padding:0;
+   background: rgb(238, 255, 0);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   min-height: 10vh;
+   font-family: Raleway, sans-serif;
+   font-size: 14px;
+   font-weight: bold;
+   text-transform: uppercase;
+}
+.changebox{
+   margin: 0 5px;
+   color: #FF5722;
+   overflow: hidden;
+   transition: .5s;
+   white-space: nowrap;
+}
+</style>
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<p>
+   Enjoy 
+<div class="changebox">
+   <span>Guaranteed Authenticity</span><br>
+   <span>Instant Delivery</span><br>
+   <span>Hassle-free exchange</span><br>
+   <span>100% Secure payment</span><br>
+</div> 
+from sneakerhypeuk
+</p>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script><script  src="./script.js"></script>
+<script>
+
+$(document).ready(function(){
+   var changebox = $(".changebox");
+   
+   var firstclone = changebox.children(":first").clone();
+   changebox.append(firstclone);
+   
+   var fsstr = changebox.parent().css("font-size");
+   fsstr = fsstr.slice(0,fsstr.indexOf("p"));
+   var fs = parseInt(fsstr);
+   
+   changebox.css("height",changebox.parent().css("font-size") );
+   ChangeSize(0);
+   setInterval(Next,2000);
+   
+   function Next(){
+      if( typeof Next.i == 'undefined' ) {
+        Next.i = 0;
+      }
+     Next.i++;
+      if(Next.i == changebox.children("span").length){
+         Next.i = 1;
+         changebox.scrollTop(0);
+      }
+      changebox.animate({scrollTop: (fs*Next.i)+Next.i*5+3},500);
+      setTimeout(function(){
+         ChangeSize(Next.i);
+      },500);
+      
+   }
+   
+   function ChangeSize(i){
+   var word = changebox.children("span").eq(i);
+   var wordsize = word.css("width");
+   changebox.css("width",wordsize);
+}
+   
+   
+});
+
+</script>
+</body>
+</html>
