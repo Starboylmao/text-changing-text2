@@ -14,12 +14,18 @@ html, body {
 	width: 100%;
 	height: 100%;
 	margin: 0;
+    display: flex; /* Use flexbox to center vertically */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
 }
 
 body {
 	font-family:'Lato', sans-serif !important;
 	font-size: 13pt !important;
 	font-weight: 300 !important;
+    display: flex; /* Use flexbox to center vertically */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
 }
 
 .container-fluid {
@@ -34,12 +40,17 @@ body {
 
 /* Slider */
 #textSlider.row {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	width: 80% !important;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80% !important;
+    text-align: center; /* Center text in the container */
+    display: flex; /* Use flexbox to center vertically */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
 }
+
 #textSlider div {
 	color: #000000;
 	font-family: 'Lato', sans-serif;
